@@ -1,4 +1,6 @@
-dotfiles
-========
 
-Saves and syncs dotfiles across your home directories
+
+All the dotfiles from my home directory
+
+####TODO####
+Add install script

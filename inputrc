@@ -1,0 +1,8 @@
+# Set vi to be the default editor for readline
+set editing-mode vi
+
+# Vi settings
+$if mode=vi
+    set keymap vi-insert
+    "jj": vi-movement-mode # remap escape
+$endif
