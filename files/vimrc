@@ -14,6 +14,7 @@ Plugin 'gmarik/vundle'
 "Put Github plugins here:
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 " ---
 
@@ -28,6 +29,14 @@ Plugin 'tomasr/molokai'
 " :PluginUpdate     -Update Plugins
 " :PluginSearch foo	-search for foo
 " :PluginClean  	-confirm removal of unused plugins
+"
+" Added PluginInstall alias to bashrc:
+" alias PluginInstall='vim +PluginInstall +qall'
+" Use '$ PluginInstall' to install Vundle plugins
+"
+" Added PluginUpdate alias to bashrc:
+" alias PluginUpdate='vim +PluginUpdate +qall'
+" Use '$ PluginUpdate' to install Vundle plugins
 "
 " see :h vundle for more details
 " NOTE: comments after Bundle are now allowed

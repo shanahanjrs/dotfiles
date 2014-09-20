@@ -90,10 +90,15 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+# User aliases
 alias aptitude='aptitude -y'
 alias c='clear'
 alias youtube-dl='youtube-dl -w -t'
 alias ..='cd ../'
+
+# Vundle aliases
+alias PluginInstall='vim +PluginInstall +qall'
+alias PluginUpdate='vim +PluginUpdate +qall'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
