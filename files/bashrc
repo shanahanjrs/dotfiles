@@ -57,9 +57,15 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [$]\e[m '
+    if [ "$(id -u)" != "0" ]; then
+        PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [$]\e[m '
+    fi
+
+    if [ "$(id -u)" == "0" ]; then
+        PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [#]\e[m '
+    fi
 else
-    PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [$]\e[m '
+    PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [?]\e[m '
 fi
 unset color_prompt force_color_prompt
 
