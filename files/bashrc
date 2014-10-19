@@ -101,6 +101,8 @@ alias aptitude='aptitude -y'
 alias c='clear'
 alias youtube-dl='youtube-dl -w -t'
 alias ..='cd ../'
+alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check'
+alias update='sudo apt-get update; sudo apt-get upgrade'
 
 # Vundle aliases
 alias PluginInstall='vim +PluginInstall +qall'
