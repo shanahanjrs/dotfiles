@@ -91,13 +91,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias lll='ls -al'
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+alias lll='ls -hal'
+alias ll='ls -hl'
+alias la='ls -hA'
+alias l='ls -hCF'
 
 # User aliases
-alias aptitude='aptitude -y'
 alias c='clear'
 alias youtube-dl='youtube-dl -w -t'
 alias ..='cd ../'
