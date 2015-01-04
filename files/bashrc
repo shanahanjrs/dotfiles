@@ -1,6 +1,17 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+## John Shanahan
+## ~/.bashrc
+
+printf "\e[1;34m"
+printf "###########################################\n"
+printf "##            John Shanahan              ##\n"
+printf "##          MacBook Pro Retina           ##\n"
+printf "###########################################\n\n"
+printf "\e[m \e[1;32m"
+cal ; w
+printf "\e[m"
+
+
+
 
 # If not running interactively, don't do anything
 case $- in
@@ -58,9 +69,8 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     if [ "$(id -u)" != "0" ]; then
-        PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [$]\e[m '
+        PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [\$]\e[m '
     fi
-
     if [ "$(id -u)" == "0" ]; then
         PS1='\e[0;36m[\W]\e[0;34m\e[m\e[0;36m [#]\e[m '
     fi
@@ -82,34 +92,28 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+# see aliases
+alias aliases='cat ~/.bashrc |grep "alias"'
+
+# user aliases
 alias lll='ls -hal'
 alias ll='ls -hl'
-alias la='ls -hA'
-alias l='ls -hCF'
 
-# User aliases
 alias c='clear'
 alias youtube-dl='youtube-dl -w -t'
 alias ..='cd ../'
 alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check'
 alias update='sudo apt-get update; sudo apt-get upgrade'
 
-# Vundle aliases
+# Vundle
 alias PluginInstall='vim +PluginInstall +qall'
 alias PluginUpdate='vim +PluginUpdate +qall'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

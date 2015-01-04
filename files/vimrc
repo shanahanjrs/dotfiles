@@ -26,11 +26,11 @@ Plugin 'gmarik/vundle'
 
 "Put Github plugins here:
 Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
 Plugin 'Yggdroot/indentLine'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/TwitVim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'scrooloose/nerdtree'
 " ---
 
 " Color Schemes
@@ -189,21 +189,6 @@ set autoread
 "
 " see :h vundle for more details
 " comments after Bundle are allowed
+" INSTALL WITH $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 """""""""""""""
 " End Vundle help
-
-" TwitVim Help
-"""""""""""""""
-" :PosttoTwitter    - Send tweet
-" :CPosttoTwitter   - Post current line in buffer to twitter
-" :BPosttoTwitter   - Post current buffer to twitter
-" :FriendsTwitter   - View friends timeline
-" :UserTwitter      - View your timeline
-" :MentionsTwitter  - View your mentions
-" :PublicTwitter    - View public timeline
-" :DMTwitter        - View your DMs
-" :SearchTwitter    - Search twitter
-"
-" see :h TwitVim-install
-"""""""""""""""
-" End TwitVim help
