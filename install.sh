@@ -2,5 +2,10 @@
 
 # dotfiles.sh install script
 
-# 1. mv dotfiles.sh to your path
-# 2. mv ~/dotfiles/ to ~/.dotfiles or some other
+echo "Run from dotfiles/ directory"
+
+cat files/bashrc > ~/.bashrc
+cat files/vimrc > ~/.vimrc
+cat files/inputrc > ~/.inputrc
+cat files/screenrc > ~/.screenrc
+cat files/NERDTreeBookmarks > ~/.NERDTreeBookmarks

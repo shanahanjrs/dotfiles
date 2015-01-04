@@ -189,6 +189,11 @@ set autoread
 "
 " see :h vundle for more details
 " comments after Bundle are allowed
-" INSTALL WITH $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" INSTALL WITH:
+"
+" $ mkdir ~/.vim/backup; git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+" Then install plugins with:
+" $ vim +PluginInstall
 """""""""""""""
 " End Vundle help
