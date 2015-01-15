@@ -2,17 +2,17 @@
 " John Shanahan
 
 
-" Scripts       -> 11 
-" One-liners    -> 71
-" Help          -> 165
+" Vundle        -> 11 
+" RetCurse      -> 44
+" Win Compat    -> 60
+" One-liners    -> 69
+" Aliases       -> 163
+" Help          -> 182
 
 
-"""""""""""""""""""
-" Scripts
-"""""""""""""""""""
-
-" Start Vundle 
-"""""""""""""""
+""""""""""""""""""""
+" Vundle 
+""""""""""""""""""""
 " Required
 set nocompatible
 filetype off
@@ -29,8 +29,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
+Plugin 'shougo/vimproc'
+Plugin 'shougo/vimshell'
 " ---
 
 " Color Schemes
@@ -40,11 +41,11 @@ Plugin 'tomasr/molokai'
 
 call vundle#end()
 filetype plugin indent on
-"""""""""""""""
-" End Vundle
+""""""""""""""""""""
 
-" ResCur - Return cursor to last known position
-"""""""""""""""
+""""""""""""""""""""
+" RetCurse - Return cursor to last known position
+""""""""""""""""""""
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
@@ -55,21 +56,19 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
-"""""""""""""""
-" End ResCur
+""""""""""""""""""""
 
+""""""""""""""""""""
 " Make Windows compatible (gross)
-"""""""""""""""
+""""""""""""""""""""
 if has('win32') || has('win64')
 	set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/\
 after,$HOME/.vim/after
 endif
-"""""""""""""""
-" End win
 
-"""""""""""""""""""
+""""""""""""""""""""
 " One liners
-"""""""""""""""""""
+""""""""""""""""""""
 
 " Force save files that require root
 cmap w!! %!sudo tee > /dev/null %
@@ -77,9 +76,6 @@ cmap w!! %!sudo tee > /dev/null %
 " Set map leader to ','
 let mapleader = ","
 let g:mapleader = ","
-
-" Fast save
-nnoremap <leader>w :w<cr>
 
 " Sets utf8 as standard encoding
 set encoding=utf8
@@ -100,9 +96,6 @@ set undoreload=500
 set undodir=~/.vim/backup/
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
-
-" Remap 'jj' to escape in insert mode
-inoremap jj <Esc>
 
 " Fix broken backspace in 7.4
 set backspace=2
@@ -167,12 +160,31 @@ set splitbelow
 " Automatically re-read files changed outside of Vim.
 set autoread
 
-"""""""""""""""""""
-" Help
-"""""""""""""""""""
+""""""""""""""""""""
+" Aliases
+""""""""""""""""""""
+" Fast save
+nnoremap <leader>w :w<cr>
 
+" Fast NERDTree
+nnoremap <leader>nt :NERDTree<cr>
+
+" Fast q
+nnoremap <leader>q :q<cr>
+
+" Fast wq
+nnoremap <leader>wq :wq<cr>
+
+" Remap 'jj' to escape in insert mode
+inoremap jj <Esc>
+
+""""""""""""""""""""
+" Help
+""""""""""""""""""""
+
+""""""""""""""""""""
 " Vundle Help
-"""""""""""""""
+""""""""""""""""""""
 " :PluginList		-list configured plugins
 " :PluginInstall	-install plugins
 " :PluginUpdate     -Update Plugins
@@ -190,5 +202,4 @@ set autoread
 " see :h vundle for more details
 " comments after Bundle are allowed
 " INSTALL WITH $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"""""""""""""""
-" End Vundle help
+""""""""""""""""""""
