@@ -1,13 +1,7 @@
 " .vimrc
 " John Shanahan
-
-
-" Vundle        -> 11 
-" RetCurse      -> 44
-" Win Compat    -> 60
-" One-liners    -> 69
-" Aliases       -> 163
-" Help          -> 182
+" shanahan.jrs@gmail.com
+" github.com/shanahanjrs
 
 
 """"""""""""""""""""
@@ -32,11 +26,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'shougo/vimproc'
 Plugin 'shougo/vimshell'
-" ---
-
-" Color Schemes
 Plugin 'flazz/vim-colorschemes'
-Plugin 'tomasr/molokai'
 " ---
 
 call vundle#end()
@@ -67,8 +57,11 @@ after,$HOME/.vim/after
 endif
 
 """"""""""""""""""""
-" One liners
+" Main Settings
 """"""""""""""""""""
+
+" Set color scheme
+colorscheme molokai
 
 " Force save files that require root
 cmap w!! %!sudo tee > /dev/null %
@@ -174,6 +167,9 @@ nnoremap <leader>q :q<cr>
 
 " Fast wq
 nnoremap <leader>wq :wq<cr>
+
+" Fast VimShell
+nnoremap <leader>vs :VimShell<cr>
 
 " Remap 'jj' to escape in insert mode
 inoremap jj <Esc>
