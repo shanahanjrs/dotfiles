@@ -106,15 +106,15 @@ syntax on
 " Assumes a dark bg
 set background=dark
 
-" Changes bgcolor after the 80th column
-execute "set colorcolumn=" . join(range(81,335), ',') 	
+" Changes bgcolor after the 120th column
+execute "set colorcolumn=" . join(range(121,335), ',') 	
 
 " Sets colorcolumn to black
 :hi ColorColumn ctermbg=black guibg=black
 
 " Makes anything past 80 col red/white
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%80v.\+/
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%80v.\+/
 
 " Highlight search terms
 set hlsearch
@@ -146,6 +146,9 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Mouse scroll
+set mouse=a
 
 " For more natural looking splitting
 set splitbelow
