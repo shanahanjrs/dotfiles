@@ -2,25 +2,29 @@
 # dotfiles.sh install script
 
 if [[ $(uname) == "Linux" ]]; then
-    echo "Installing ~/.bashrc..."
+    echo "Copying ~/.bashrc..."
     cat files/bashrc > ~/.bashrc
 fi
 
 if [[ $(uname) == "Darwin" ]]; then
-    echo "Installing ~/.bash_profile..."
+    echo "Copying ~/.bash_profile..."
     cat files/bash_profile > ~/.bash_profile
 fi
 
-echo "Installing ~/.vimrc..."
+echo "Copying ~/.vimrc..."
 cat files/vimrc > ~/.vimrc
 
-echo "Installing ~/.inputrc..."
+echo "Creating ~/.vim/backup dir..."
+mkdir ~/.vim
+mkdir ~/.vim/backup
+
+echo "Copying ~/.inputrc..."
 cat files/inputrc > ~/.inputrc
 
-echo "Installing ~/.screenrc..."
+echo "Copying ~/.screenrc..."
 cat files/screenrc > ~/.screenrc
 
-echo "Installing ~/.NERDTreeBookmarks..."
+echo "Copying ~/.NERDTreeBookmarks..."
 cat files/NERDTreeBookmarks > ~/.NERDTreeBookmarks
 
 echo "Done. Restart your shell"
