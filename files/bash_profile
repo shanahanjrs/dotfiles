@@ -50,11 +50,11 @@ force_color_prompt=yes
 
 
 if [ "$(id -u)" != "0" ]; then
-    PS1='\W $> '
+    PS1='\W $ '
 fi
 
 if [ "$(id -u)" == "0" ]; then
-    PS1='\W #> '
+    PS1='\W # '
 fi
 
 # If this is an xterm set the title to user@host:dir

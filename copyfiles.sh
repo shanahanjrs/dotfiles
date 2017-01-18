@@ -1,30 +1,39 @@
 #!/bin/bash
 # dotfiles.sh install script
 
-if [[ $(uname) == "Linux" ]]; then
-    echo "Copying ~/.bashrc..."
-    cat files/bashrc > ~/.bashrc
+echo 'Installing dotfiles...'
+echo '----------------------'
+
+if [[ $(uname) == 'Linux' ]]; then
+    echo 'Copying ~/.bashrc...'
+    cat files/bash_profile > ~/.bashrc
 fi
 
-if [[ $(uname) == "Darwin" ]]; then
-    echo "Copying ~/.bash_profile..."
+if [[ $(uname) == 'Darwin' ]]; then
+    echo 'Copying ~/.bash_profile...'
     cat files/bash_profile > ~/.bash_profile
 fi
 
-echo "Copying ~/.vimrc..."
+echo 'Copying ~/.zshrc...'
+cat files/zshrc > ~/.zshrc
+
+echo 'Copying ~/.vimrc...'
 cat files/vimrc > ~/.vimrc
 
-echo "Creating ~/.vim/backup dir..."
+echo 'Creating ~/.vim/backup dir...'
 mkdir ~/.vim
 mkdir ~/.vim/backup
 
-echo "Copying ~/.inputrc..."
+echo 'Installing Vundle...'
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo 'Copying ~/.inputrc...'
 cat files/inputrc > ~/.inputrc
 
-echo "Copying ~/.screenrc..."
+echo 'Copying ~/.screenrc...'
 cat files/screenrc > ~/.screenrc
 
-echo "Copying ~/.NERDTreeBookmarks..."
+echo 'Copying ~/.NERDTreeBookmarks...'
 cat files/NERDTreeBookmarks > ~/.NERDTreeBookmarks
 
-echo "Done. Restart your shell"
+echo 'Done. Restart your shell'

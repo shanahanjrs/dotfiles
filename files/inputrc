@@ -6,3 +6,6 @@ $if mode=vi
     set keymap vi-insert
     "jj": vi-movement-mode # remap escape
 $endif
+
+# Ignore case during autocomplete
+set completion-ignore-case On
