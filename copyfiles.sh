@@ -36,4 +36,7 @@ cat files/screenrc > ~/.screenrc
 echo 'Copying ~/.NERDTreeBookmarks...'
 cat files/NERDTreeBookmarks > ~/.NERDTreeBookmarks
 
+echo 'Installing vim plugins...'
+vim +PluginUpdate +qall
+
 echo 'Done. Restart your shell'
