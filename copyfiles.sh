@@ -17,6 +17,13 @@ fi
 echo 'Copying ~/.zshrc...'
 cat files/zshrc > ~/.zshrc
 
+if [[ -d ~/.oh-my-zsh ]]; then
+    echo 'Copying ~/.oh-my-zsh/themes/jrs.zsh-theme...'
+    cp files/jrs.zsh-theme ~/.oh-my-zsh/themes
+else
+    echo 'You do not have oh-my-zsh installed at ~/.oh-my-zsh. Please install and rerun...'
+fi
+
 echo 'Copying ~/.vimrc...'
 cat files/vimrc > ~/.vimrc
 
