@@ -1,7 +1,8 @@
 local _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
 function _current_username() {
-  if [[ $(whoami) == 'joshanah' ]]; then
+  local i_am=$(whoami)
+  if [[ ${i_am} == 'joshanah' || ${i_am} == 'john' ]]; then
     printf 'ジョン'
   else
     printf $(whoami)
@@ -25,10 +26,10 @@ function _vi_status() {
   fi
 }
 
-if [[ $USER == "root" ]]; then
-  LAMBDACOLOR="red"
+if [[ $? -eq 0 ]]; then
+  LAMBDACOLOR="green"
 else
-  LAMBDACOLOR="white"
+  LAMBDACOLOR="red"
 fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
@@ -44,5 +45,5 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}§ "
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}◒ "
 
 PROMPT='$(_user_host)%{$fg[blue]%}%2~ %{$fg[yellow]%}$(_current_username)%{$reset_color%} $(git_prompt_info)
-%{$fg[$CARETCOLOR]%}λ%{$resetcolor%} '
+%{$fg[$LAMBDACOLOR]%}λ %{$reset_color%}'
 PROMPT2='%{$fg[$LAMBDACOLOR]%}◀ λ%{$reset_color%} '
