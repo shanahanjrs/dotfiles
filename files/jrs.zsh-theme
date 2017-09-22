@@ -26,12 +26,6 @@ function _vi_status() {
   fi
 }
 
-if [[ $? -eq 0 ]]; then
-  LAMBDACOLOR="green"
-else
-  LAMBDACOLOR="red"
-fi
-
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 
@@ -45,5 +39,5 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}§ "
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}◒ "
 
 PROMPT='$(_user_host)%{$fg[blue]%}%2~ %{$fg[yellow]%}$(_current_username)%{$reset_color%} $(git_prompt_info)
-%{$fg[$LAMBDACOLOR]%}λ %{$reset_color%}'
+%(?.$fg[green].$fg[red])%\λ %{$reset_color%}'
 PROMPT2='%{$fg[$LAMBDACOLOR]%}◀ λ%{$reset_color%} '
