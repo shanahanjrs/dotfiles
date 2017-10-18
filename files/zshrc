@@ -80,13 +80,91 @@ alias ..='cd ../'
 alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check'
 alias svim='sudo vim'
 alias cim='vim'
+alias git='tig'
 alias ga='git add -A'
 alias gs='git status'
+alias gd='git diff'
 alias gcm='git commit -m'
 alias dpa='docker ps -a'
 alias di='docker images'
 alias PluginInstall='vim +PluginInstall +qall'
 alias PluginUpdate='vim +PluginUpdate +qall'
+
+#k8s aliases
+alias k="kubectl"
+alias kpods="k get pods -o wide"
+alias knodes="k get nodes -o wide"
+alias kservices="k get services"
+alias kd="k get deployments"
+alias krc="k get replicationcontroller"
+alias ks="k get secrets"
+alias klogs="k logs -f"
+alias ktail="kubetail"
+alias kexec="k exec -it"
+alias kdesc="k describe"
+alias kwatchpods="watch kubectl get pods -o wide"
+alias dnstools="kubectl run -it --rm --restart=Never --image=infoblox/dnstools:latest dnstools"
+kcontext() {
+  context=$(k config view | grep current-context: | awk 'NF>1{print $NF}')
+  ns=$(k config view | grep -A 1 "cluster: $context" | awk 'FNR == 2 {print $2}')
+  echo "${context}|${ns}"
+}
+# kprune()
+#
+# Need to restart some pods? Dont feel like deleting the deployment
+# b/c redeploying it is too hard? Well great, destroy them with kprune.
+# This will do a grep against all pods in the current namespace, so be careful!
+# But you will be prompted before you obliterate the list of apps.
+#
+# PS: I dont really the name of the function so im open to suggestions.
+# TODO: Add the ability to delete N pods at a time, and sleep for N seconds. This will allow
+#       the app to recover a bit, instead of blowing them all away at once :).
+kprune() {
+  if [[ -z $1 ]] ; then
+    echo "Must specify pod search"
+    return
+  fi
+  pods=( $(kubectl get pods | grep $1 | awk 'FNR > 0 {print $1}') )
+  echo "${#pods[@]} Pods Found ... staging for deletion."
+  printf '\t%s\n' "${pods[@]}"
+  echo -n "Are you sure you want to delete? (y/n): "
+  read delete
+  if [[ "$delete" = "y" ]] ; then
+    for (( i=0; i<${#pods[@]}; i++ )); do
+      kubectl delete pod ${pods[i]}
+    done
+  else
+    echo "Cancelling ..."
+  fi
+}
+kcon() {
+ k exec -it $1 /bin/$2
+}
+kswitch() {
+ k config use-context $1
+}
+kreveal() {
+  k get secret $1 -o=yaml
+}
+kns() {
+ # 1: namespace
+ # 2: context (dev / senna) defaults to dev
+ context=$2
+ if [[ -z $context ]] ; then
+  context="coulthard"
+ fi
+ k config set-context $context --namespace=$1
+}
+kdelete() {
+ k delete service,pod,rc,deployments $1
+}
+kstats() {
+ nodes=( $(k get nodes | awk 'FNR > 1 {print $1}') )
+ for (( i=0; i<${#nodes[@]}; i++ )); do
+  k describe node ${nodes[i]};
+  #| sed -n -e '/Namespace/,$p'
+ done
+}
 
 # vi mode
 bindkey -v
