@@ -174,4 +174,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Automatically update oh my zsh
 DISABLE_UPDATE_PROMPT=true
 
-
+# Turn off shared history
+setopt no_share_history
