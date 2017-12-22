@@ -176,3 +176,4 @@ DISABLE_UPDATE_PROMPT=true
 
 # Turn off shared history
 setopt no_share_history
+unsetopt correct_all
