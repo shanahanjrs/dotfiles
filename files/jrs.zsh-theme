@@ -2,10 +2,10 @@ local _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
 function _current_username() {
   local i_am=$(whoami)
-  if [[ ${i_am} == 'joshanah' || ${i_am} == 'john' ]]; then
-    printf 'ジョン'
+  if [[ ${i_am} == 'root' ]]; then
+    printf ' # '
   else
-    printf $(whoami)
+    printf ' '
   fi
 }
 
@@ -28,16 +28,10 @@ function _vi_status() {
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}◒ %{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}◒ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}✚ "
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[yellow]%}⚑ "
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}✖ "
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}▴ "
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}§ "
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}◒ "
 
-PROMPT='$(_user_host)%{$fg[blue]%}%2~ %{$fg[yellow]%}$(_current_username)%{$reset_color%} $(git_prompt_info)
+PROMPT='$(_user_host)%{$fg[cyan]%}%2~%{$fg[yellow]%}$(_current_username)%{$reset_color%}$(git_prompt_info)
 %(?.$fg[green].$fg[red])%\λ %{$reset_color%}'
 PROMPT2='%{$fg[$LAMBDACOLOR]%}◀ λ%{$reset_color%} '
+
