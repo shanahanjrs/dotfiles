@@ -83,6 +83,10 @@ alias cim='vim'
 alias ga='git add -A'
 alias gs='git status'
 alias gcm='git commit -m'
+alias desktop='cd ~/Desktop'
+alias documents='cd ~/Documents'
+alias prog='cd ~/prog'
+alias tmp='cd /tmp'
 
 # docker aliases
 alias dpa='docker ps -a'
