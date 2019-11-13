@@ -1,6 +1,1 @@
-
-
-All the dotfiles from my home directory
-
-####TODO####
-Add install script
+### All dotfiles from my home directory
