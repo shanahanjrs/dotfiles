@@ -17,6 +17,9 @@ fi
 echo 'Copying ~/.zshrc...'
 cat files/zshrc > ~/.zshrc
 
+echo 'Copying ~/.tmux.conf...'
+cat files/tmux.conf > ~/.tmux.conf
+
 if [[ -d ~/.oh-my-zsh ]]; then
     echo 'Copying ~/.oh-my-zsh/themes/jrs.zsh-theme...'
     cp files/jrs.zsh-theme ~/.oh-my-zsh/themes
