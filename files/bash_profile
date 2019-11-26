@@ -1,8 +1,6 @@
 ## John Shanahan
-## ~/.bash_profile on OSX
 
 # Set terminal to VIMode
-# Most important thing in this entire file
 set -o vi
 
 # If not running interactively, don't do anything
@@ -11,18 +9,13 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
+# History
 HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=5000
 HISTFILESIZE=5000
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# check the window size after each command and update if need
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -38,15 +31,13 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+# color
 force_color_prompt=yes
 
+# PS1
 if [ "$(id -u)" != "0" ]; then
     PS1='\W $ '
 fi
-
 if [ "$(id -u)" == "0" ]; then
     PS1='\W # '
 fi
@@ -70,11 +61,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# ls aliases
+# -- Aliases
+alias ls='pwd && exa'
 alias ll='ls -hl'
 alias lll='ls -hal'
-
-# bash aliases
 alias reload='source ~/.bashrc'
 alias vim='nvim'
 alias c='clear'
@@ -83,6 +73,7 @@ alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check
 alias svim='sudo vim'
 alias cim='vim'
 alias ga='git add -A'
+alias gd='git diff'
 alias gs='git status'
 alias gcm='git commit -m'
 alias gl='git pull'
@@ -96,6 +87,17 @@ alias tmp='cd /tmp'
 alias dpa='docker ps -a'
 alias di='docker images'
 
+# kubernetes aliases
+alias k='kubectl'
+alias kpods='kubectl get pods -owide'
+alias knodes='kubectl get nodes -owide'
+alias kexec='kubectl exec -it'
+alias kdesc='kubectl describe'
+
+# kubectl & k autocomplete
+source <(kubectl completion bash | sed 's/kubectl/k/g')
+source <(kubectl completion bash)
+
 # Vundle
 alias PluginInstall='vim +PluginInstall +qall'
 alias PluginUpdate='vim +PluginUpdate +qall'
@@ -108,9 +110,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
