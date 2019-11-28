@@ -35,12 +35,14 @@ esac
 force_color_prompt=yes
 
 # PS1
-if [ "$(id -u)" != "0" ]; then
-    PS1='\W $ '
-fi
-if [ "$(id -u)" == "0" ]; then
-    PS1='\W # '
-fi
+export PS1="\[\e[37m\]\w\[\e[m\] \`parse_git_branch\` \[\e[37m\]\\$\[\e[m\] "
+
+#if [ "$(id -u)" != "0" ]; then
+#    PS1='\W $ '
+#fi
+#if [ "$(id -u)" == "0" ]; then
+#    PS1='\W # '
+#fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
