@@ -37,12 +37,6 @@ force_color_prompt=yes
 # PS1
 export PS1="\[\e[37m\]\w\[\e[m\] \`parse_git_branch\` \[\e[37m\]\\$\[\e[m\] "
 
-#if [ "$(id -u)" != "0" ]; then
-#    PS1='\W $ '
-#fi
-#if [ "$(id -u)" == "0" ]; then
-#    PS1='\W # '
-#fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -75,19 +69,25 @@ alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check
 alias svim='sudo vim'
 alias cim='vim'
 alias ga='git add -A'
+alias gc='git clone'
 alias gd='git diff'
 alias gs='git status'
 alias gcm='git commit -m'
 alias gl='git pull'
 alias gp='git push'
+alias quickpush="git add -A; git commit -am "quickpush"; git push origin master"
 alias desktop='cd ~/Desktop'
 alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
 alias tmp='cd /tmp'
 
+alias tor="docker run -i -t --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro paulczar/torbrowser"
+
 # docker aliases
 alias dpa='docker ps -a'
 alias di='docker images'
+alias lzd='lazydocker'
+alias dk='docker kill'
 
 # kubernetes aliases
 alias k='kubectl'
