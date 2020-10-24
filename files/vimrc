@@ -6,7 +6,6 @@
 """"""""""""""""""""
 " Vundle 
 """"""""""""""""""""
-" Required
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -15,7 +14,6 @@ call vundle#begin()
 
 "Let Vundle manage itself
 Plugin 'gmarik/vundle'
-" ---
 
 "Put Github plugins here:
 Plugin 'scrooloose/syntastic'
@@ -31,9 +29,7 @@ call vundle#end()
 filetype plugin indent on
 """"""""""""""""""""
 
-""""""""""""""""""""
 " RetCurse - Return cursor to last known position
-""""""""""""""""""""
 function! ResCur()
   if line("'\"") <= line("$")
     normal! g`"
@@ -47,61 +43,27 @@ augroup END
 """"""""""""""""""""
 
 
-""""""""""""""""""""
 " Main Settings
-""""""""""""""""""""
-
-" Set color scheme
-colorscheme molokai
-
-" Force save files that require root
-cmap w!! %!sudo tee > /dev/null %
-
-" Set map leader to ','
-let mapleader = ","
+set number
+syntax on
+colorscheme molokai                     " Set color scheme
+set background=dark
+cmap w!! %!sudo tee > /dev/null %       " Force save files that require root
+let mapleader = ","                     " Set map leader to ','
 let g:mapleader = ","
-
-" Sets utf8 as standard encoding
-set encoding=utf8
-
-" 500 commands back
-set history=500
-
-" Persistant undo
-set undofile
-
-" Undo's
-set undolevels=500
-
-" Undo buffer
+set encoding=utf8                       " Sets utf8 as standard encoding
+set history=500                         " 500 commands back
+set undofile                            " Persistant undo
+set undolevels=500                      " Undo's
 set undoreload=500
-
-" Set a backup directory for vim
-set undodir=~/.vim/backup/
+set undodir=~/.vim/backup/              " Set a backup directory for vim
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
-
-" Fix broken backspace in 7.4
-set backspace=2
-
-" Number of lines to show around cursor
-set scrolloff=10
+set backspace=2                         " Fix broken backspace in 7.4
+set scrolloff=10                        " Number of lines to show around cursor
 set sidescrolloff=10
-
-" Show line numbers
-set number
-
-" Turn on syntax highlighting
-syntax on
-
-" Assumes a dark bg
-set background=dark
-
-" Changes bgcolor after the 120th column
-execute "set colorcolumn=" . join(range(121,335), ',') 	
-
-" Sets colorcolumn to black
-:hi ColorColumn ctermbg=black guibg=black
+execute "set colorcolumn=" . join(range(121,335), ',') 	" Changes bgcolor after the 120th column
+:hi ColorColumn ctermbg=black guibg=black               " Sets colorcolumn to black
 
 " Makes anything past 80 col red/white
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
