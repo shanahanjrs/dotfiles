@@ -17,6 +17,9 @@ fi
 echo 'Copying ~/.zshrc...'
 cat files/zshrc > ~/.zshrc
 
+echo 'Copying ~/.bash_aliases...'
+cat files/bash_aliases > ~/.bash_aliases
+
 echo 'Copying ~/.tmux.conf...'
 cat files/tmux.conf > ~/.tmux.conf
 
