@@ -1,0 +1,70 @@
+## John Shanahan
+## Aliases
+
+alias ls='pwd && exa'
+alias ll='ls -hl'
+alias lll='ls -hal'
+alias reload='source ~/.bashrc'
+alias vim='nvim'
+alias c='clear'
+alias ..='cd ../'
+alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check'
+alias svim='sudo vim'
+alias cim='vim'
+alias quickpush="git add -A; git commit -am 'tweaks'; git push origin master"
+alias desktop='cd ~/Desktop'
+alias documents='cd ~/Documents'
+alias prog='cd ~/prog'
+
+alias tor="docker run -i -t --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro paulczar/torbrowser"
+
+# git
+alias ga='git add -A'
+alias gc='git clone'
+alias gd='git diff'
+alias gs='git status'
+alias gcm='git commit -m'
+alias gl='git pull'
+alias gp='git push'
+
+# docker
+alias dpa='docker ps -a'
+alias di='docker images'
+alias lzd='lazydocker'
+alias dk='docker kill'
+
+# kubernetes
+alias k='kubectl'
+alias kpods='kubectl get pods -owide'
+alias knodes='kubectl get nodes -owide'
+alias kexec='kubectl exec -it'
+alias kdesc='kubectl describe'
+
+# kubectl & k autocomplete
+source <(kubectl completion bash | sed 's/kubectl/k/g')
+source <(kubectl completion bash)
+
+# Vundle
+alias PluginInstall='vim +PluginInstall +qall'
+alias PluginUpdate='vim +PluginUpdate +qall'
+
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1     ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
