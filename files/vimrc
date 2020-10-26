@@ -48,7 +48,7 @@ set number
 syntax on
 colorscheme molokai                     " Set color scheme
 set background=dark
-cmap w!! %!sudo tee > /dev/null %       " Force save files that require root
+cmap w!! %!sudo tee > /dev/null %;      " Force save files that require root
 let mapleader = ","                     " Set map leader to ','
 let g:mapleader = ","
 set encoding=utf8                       " Sets utf8 as standard encoding
@@ -62,79 +62,34 @@ set directory=~/.vim/backup/
 set backspace=2                         " Fix broken backspace in 7.4
 set scrolloff=10                        " Number of lines to show around cursor
 set sidescrolloff=10
-execute "set colorcolumn=" . join(range(121,335), ',') 	" Changes bgcolor after the 120th column
+" Changes bgcolor after the 120th column
+execute "set colorcolumn=".join(range(121,335), ',') 	
 :hi ColorColumn ctermbg=black guibg=black               " Sets colorcolumn to black
-
-" Makes anything past 80 col red/white
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%80v.\+/
-
-" Highlight search terms
-set hlsearch
-
-" Always show statusline
-set laststatus=2
-
-" Turn off bell
-set visualbell
-
-" Term things
+set hlsearch                            " Highlight search terms
+set laststatus=2                        " Always show statusline
+set visualbell                          " Turn off bell
 set ttyfast
 set lazyredraw
-
-" In status bar, show incomlete commands as they are typed
-set showcmd
-
-" Turn off spell check
-set nospell
-
-" Always display the current cursor pos. in the status bar.
-set ruler
-
-" Yank to system clipboard by default
-set clipboard=unnamed
-
-" Some extra indentation magic...
+set showcmd                             " In status bar, show incomlete commands as they are typed
+set ruler                               " Always display the current cursor pos. in the status bar.
+set clipboard=unnamed                   " Yank to system clipboard by default
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-" Mouse scroll
-set mouse=a
-
-" For more natural looking splitting
+set mouse=a                             " Mouse scroll
 set splitbelow
-
-" Automatically re-read files changed outside of Vim.
-set autoread
+set autoread                            " Automatically re-read files changed outside of Vim.
 
 """"""""""""""""""""
 " Aliases
 """"""""""""""""""""
-" Fast save
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :w<cr>               " Fast save
+nnoremap <leader>nt :NERDTree<cr>       " Fast NERDTree
+nnoremap <leader>q :q<cr>               " Fast q
+nnoremap <leader>wq :wq<cr>             " Fast wq
+inoremap jj <Esc>                       " Remap 'jj' to escape in insert mode
 
-" Fast NERDTree
-nnoremap <leader>nt :NERDTree<cr>
-
-" Fast q
-nnoremap <leader>q :q<cr>
-
-" Fast wq
-nnoremap <leader>wq :wq<cr>
-
-" Fast VimShell
-nnoremap <leader>vs :VimShell<cr>
-
-" Remap 'jj' to escape in insert mode
-inoremap jj <Esc>
-
-""""""""""""""""""""
-" Help
-""""""""""""""""""""
-
-""""""""""""""""""""
 " Vundle Help
 """"""""""""""""""""
 " :PluginList		-list configured plugins
@@ -154,4 +109,3 @@ inoremap jj <Esc>
 " see :h vundle for more details
 " comments after Bundle are allowed
 " INSTALL WITH $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-""""""""""""""""""""
