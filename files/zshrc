@@ -71,6 +71,7 @@ source $ZSH/oh-my-zsh.sh
 alias reload='. ~/.zshrc && clear'
 alias eth='echo "Eth(usd): $"$(curl -sL https://api.coinmarketcap.com/v1/ticker/ethereum/ | jq ".[0].price_usd" | cut -d\" -f2 )'
 alias btc='echo "Btc(usd): $"$(curl -sL https://api.coinmarketcap.com/v1/ticker/bitcoin/ | jq ".[0].price_usd" | cut -d\" -f2 )'
+alias ls='exa'
 alias ll='ls -hl'
 alias lll='ls -hal'
 alias c='clear'
