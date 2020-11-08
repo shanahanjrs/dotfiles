@@ -1,4 +1,3 @@
-## John Shanahan
 ## Aliases
 
 alias ls='pwd && exa'
@@ -15,6 +14,8 @@ alias quickpush="git add -A; git commit -am 'tweaks'; git push origin master"
 alias desktop='cd ~/Desktop'
 alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
+
+alias emacs='emacs -nw'
 
 alias tor="docker run -i -t --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro paulczar/torbrowser"
 
