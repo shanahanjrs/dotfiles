@@ -1,8 +1,3 @@
-" .vimrc
-" John Shanahan
-" shanahan.jrs@gmail.com
-" github.com/shanahanjrs
-
 """"""""""""""""""""
 " Vundle 
 """"""""""""""""""""
@@ -30,6 +25,10 @@ Plugin 'francoiscabrol/ranger.vim'
 call vundle#end()
 filetype plugin indent on
 """"""""""""""""""""
+
+" Auto refresh NERDTree files
+autocmd CursorHold,CursorHoldI * if (winnr("$") > 1) | call NERDTreeFocus() | call g:NERDTree.ForCurrentTab().getRoot().refresh() | call g:NERDTree.ForCurrentTab().render() | wincmd w | endif
+
 
 " RetCurse - Return cursor to last known position
 function! ResCur()
@@ -91,6 +90,13 @@ nnoremap <leader>nt :NERDTree<cr>       " Fast NERDTree
 nnoremap <leader>q :q<cr>               " Fast q
 nnoremap <leader>wq :wq<cr>             " Fast wq
 inoremap jj <Esc>                       " Remap 'jj' to escape in insert mode
+
+" Open nerdtree when Vi opens
+autocmd vimenter * NERDTree | wincmd p
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Close nerdtree if nt is the last window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Vundle Help
 """"""""""""""""""""
