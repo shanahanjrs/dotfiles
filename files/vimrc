@@ -13,13 +13,11 @@ Plugin 'gmarik/vundle'
 "Put Github plugins here:
 Plugin 'scrooloose/syntastic'
 Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'shougo/vimproc'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rbgrouleff/bclose.vim'
-Plugin 'francoiscabrol/ranger.vim'
+Plugin 'terryma/vim-multiple-cursors'
 " ---
 
 call vundle#end()
