@@ -32,6 +32,7 @@ safe_ln_s vimrc
 safe_ln_s inputrc
 safe_ln_s screenrc
 safe_ln_s NERDTreeBookmarks
+safe_ln_s xmobarrc
 make_vim
 
 # Make bashrc/bash_profile
