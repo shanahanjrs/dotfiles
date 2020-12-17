@@ -11,7 +11,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = "%StdinReader% }{ RAM: %mem% | CPU: %cpu% | Weather: %wttr% | Time: %date% | Vol: %vol% | Wifi: %wifi% | Batt: %batt% "
+   , template = "%StdinReader% }{ RAM: %mem% | CPU: %cpu% | Weather: %wttr% | Time: %datetime% | Vol: %vol% | Wifi: %wifi% | Batt: %batt% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -28,6 +28,7 @@ Config {
                 , Run Com "/home/john/.config/xmobar-status-scripts/wttr.sh" [] "wttr" 3000
                 , Run Com "/home/john/.config/xmobar-status-scripts/wifi.sh" [] "wifi" 50
                 , Run Com "pulseaudio-ctl" ["current"] "vol" 20
+                , Run Com "date" ["+%a %Y-%m-%d %R"] "datetime" 50
    ]
 
 }
