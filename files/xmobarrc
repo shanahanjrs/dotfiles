@@ -28,7 +28,7 @@ Config {
                 , Run Com "/home/john/.config/xmobar-status-scripts/wttr.sh" [] "wttr" 3000
                 , Run Com "/home/john/.config/xmobar-status-scripts/wifi.sh" [] "wifi" 50
                 , Run Com "pulseaudio-ctl" ["current"] "vol" 20
-                , Run Com "date" ["+%a %Y-%m-%d %R"] "datetime" 50
+                , Run Com "date" ["+%R %a %Y-%m-%d"] "datetime" 50
    ]
 
 }
