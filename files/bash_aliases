@@ -13,6 +13,7 @@ alias quickpush="git add -A; git commit -am 'tweaks'; git push origin master"
 alias desktop='cd ~/Desktop'
 alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
+alias vim='nvim'
 
 alias emacs='emacs -nw'
 
@@ -41,8 +42,8 @@ alias kexec='kubectl exec -it'
 alias kdesc='kubectl describe'
 
 # kubectl & k autocomplete
-source <(kubectl completion bash | sed 's/kubectl/k/g')
-source <(kubectl completion bash)
+#source <(kubectl completion bash | sed 's/kubectl/k/g')
+#source <(kubectl completion bash)
 
 # Vundle
 alias PluginInstall='vim +PluginInstall +qall'
