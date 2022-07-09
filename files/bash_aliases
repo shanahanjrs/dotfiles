@@ -1,11 +1,12 @@
 ## Aliases
 
+alias l='ls -hal'
 alias ls='pwd && exa'
-alias ll='ls -hl'
-alias lll='ls -hal'
-alias reload='source ~/.bashrc'
+alias ll='echo "USE L"'
+alias reload='source ~/.bashrc && clear'
 alias c='clear'
 alias ..='cd ../'
+alias ...='cd ../..'
 alias rkhunter='rkhunter --versioncheck --update --autox --skip-keypress --check'
 alias svim='sudo vim'
 alias cim='vim'
@@ -33,6 +34,7 @@ alias dpa='docker ps -a'
 alias di='docker images'
 alias lzd='lazydocker'
 alias dk='docker kill'
+alias dps='docker ps'
 
 # kubernetes
 alias k='kubectl'
