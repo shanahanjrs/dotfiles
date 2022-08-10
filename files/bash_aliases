@@ -14,7 +14,6 @@ alias quickpush="git add -A; git commit -am 'tweaks'; git push origin master"
 alias desktop='cd ~/Desktop'
 alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
-alias vim='nvim'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
