@@ -15,7 +15,7 @@ alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-poetry-activate='source $(poetry env info --path)/bin/activate'
+alias poetry-activate='source $(poetry env info --path)/bin/activate'
 
 alias emacs='emacs -nw'
 
