@@ -1,5 +1,5 @@
-### All dotfiles from my home directory
+#  BASHmati 🖥 🍚
 
 `git clone git@github.com:shanahanjrs/dotfiles.git ~/.config/dotfiles`
 
-`./install.sh`
+`cd ~/.config/dotfiles && ./install.sh && cd -`

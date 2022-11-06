@@ -2,7 +2,7 @@
 alias l='ls -hal'
 alias ls='pwd && exa'
 alias ll='echo "USE L"'
-alias reload='source ~/.bashrc && clear'
+alias reload='source ~/.bash_profile && clear'
 alias c='clear'
 alias ..='cd ../'
 alias ...='cd ../..'
@@ -13,8 +13,6 @@ alias quickpush="git add -A; git commit -am 'tweaks'; git push origin master"
 alias desktop='cd ~/Desktop'
 alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
 alias poetry-activate='source $(poetry env info --path)/bin/activate'
 
 alias emacs='emacs -nw'
