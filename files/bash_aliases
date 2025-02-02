@@ -1,7 +1,7 @@
 ## Aliases
+alias ls='pwd && eza'
+alias ll='ls -hal'
 alias l='ls -hal'
-alias ls='pwd && exa'
-alias ll='echo "USE L"'
 alias reload='source ~/.bash_profile && clear'
 alias c='clear'
 alias ..='cd ../'
@@ -13,7 +13,7 @@ alias quickpush="git add -A; git commit -am 'tweaks'; git push origin master"
 alias desktop='cd ~/Desktop'
 alias documents='cd ~/Documents'
 alias prog='cd ~/prog'
-alias poetry-activate='source $(poetry env info --path)/bin/activate'
+alias rm='srm'
 
 alias emacs='emacs -nw'
 
@@ -27,12 +27,12 @@ alias gs='git status'
 alias gcm='git commit -m'
 alias gl='git pull'
 alias gp='git push'
+alias gba='git branch -a'
+alias gfp='git fetch --prune'
 
 # docker
 alias dpa='docker ps -a'
 alias di='docker images'
-alias lzd='lazydocker'
-alias dk='docker kill'
 alias dps='docker ps'
 
 # kubernetes
